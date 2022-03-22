@@ -1,5 +1,6 @@
 package com.hust.chartapp;
 
+import com.github.alperkurtul.firebaserealtimedatabase.annotation.EnableFirebaseRealtimeDatabase;
 import com.hust.chartapp.config.ApplicationProperties;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -19,6 +20,7 @@ import tech.jhipster.config.JHipsterConstants;
 
 @SpringBootApplication
 @EnableConfigurationProperties({ ApplicationProperties.class })
+@EnableFirebaseRealtimeDatabase
 public class ChartappApp {
 
     private static final Logger log = LoggerFactory.getLogger(ChartappApp.class);
