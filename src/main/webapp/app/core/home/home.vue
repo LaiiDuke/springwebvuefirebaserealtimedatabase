@@ -22,6 +22,7 @@
         </div>
       </div>
 
+      <line-chart></line-chart>
       <p v-text="$t('home.question')">If you have any question on JHipster:</p>
 
       <ul>
@@ -70,4 +71,12 @@
   </div>
 </template>
 
-<script lang="ts" src="./home.component.ts"></script>
+<script lang="ts">
+import LineChart from '@/components/LineChart';
+
+export default {
+  components: {
+    LineChart,
+  },
+};
+</script>
