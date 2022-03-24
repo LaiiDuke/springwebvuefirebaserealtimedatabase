@@ -85,7 +85,7 @@ public class BaseRepository<T, ID> {
             this.handleException(var7);
         }
         List<T> listRsp = new ArrayList<>();
-        LinkedHashMap<ID, LinkedHashMap> rsp = (LinkedHashMap<ID, LinkedHashMap>) responseEntity.getBody();
+        LinkedHashMap<ID, Object> rsp = (LinkedHashMap<ID, Object>) responseEntity.getBody();
         assert rsp != null;
         rsp.forEach((k, v) -> {
             T t = initObj(v, k);
@@ -95,10 +95,22 @@ public class BaseRepository<T, ID> {
         return listRsp;
     }
 
-    public T initObj(LinkedHashMap input, ID id) {
-        T t = new ObjectMapper().convertValue(input, this.firebaseDocumentClazz);
-        this.setAnnotatedFieldValue(t, this.documentIdField, id);
-        return t;
+    public T initObj(Object input, ID id) {
+        T t;
+        if (input instanceof LinkedHashMap) {
+            t = new ObjectMapper().convertValue(input, this.firebaseDocumentClazz);
+            this.setAnnotatedFieldValue(t, this.documentIdField, id);
+            return t;
+        } else {
+            try {
+                t = new ObjectMapper().readValue((String) input, this.firebaseDocumentClazz);
+                this.setAnnotatedFieldValue(t, this.documentIdField, id);
+                return t;
+            } catch (JsonProcessingException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
     }
 
     private String generateUrlGetAll(String authKey) {
