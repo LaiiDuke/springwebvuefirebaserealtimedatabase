@@ -9,6 +9,7 @@ import Router, { RouteConfig } from 'vue-router';
 
 const Home = () => import('@/core/home/home.vue');
 const Error = () => import('@/core/error/error.vue');
+const PersonHealth = () => import('@/components/person-health/person-health.vue');
 import admin from '@/router/admin';
 import entities from '@/router/entities';
 import pages from '@/router/pages';
@@ -35,6 +36,11 @@ const router = new Router({
       name: 'NotFound',
       component: Error,
       meta: { error404: true }
+    },
+    {
+      path: '/person-health',
+      name: 'PersonHealth',
+      component: PersonHealth,
     },
     ...admin,
     entities,

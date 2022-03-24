@@ -22,6 +22,7 @@ import AlertService from './shared/alert/alert.service';
 import '../content/scss/global.scss';
 import '../content/scss/vendor.scss';
 import TranslationService from '@/locale/translation.service';
+import HomeService from '@/core/home/home.service';
 /* tslint:disable */
 
 // jhipster-needle-add-entity-service-to-main-import - JHipster will import entities services here
@@ -69,6 +70,7 @@ new Vue({
   template: '<App/>',
   router,
   provide: {
+    homeService: () => new HomeService(),
     loginService: () => loginService,
     healthService: () => new HealthService(),
     configurationService: () => new ConfigurationService(),

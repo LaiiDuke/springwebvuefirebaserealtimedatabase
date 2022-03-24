@@ -26,7 +26,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 
-public class BaseRepository<T, ID> {
+public abstract class BaseRepository<T, ID> {
 
     @Value("${firebase-realtime-database.authkey}")
     private String authkey;
@@ -96,22 +96,23 @@ public class BaseRepository<T, ID> {
     }
 
     public T initObj(Object input, ID id) {
-        T t;
+        T t = null;
         if (input instanceof LinkedHashMap) {
             t = new ObjectMapper().convertValue(input, this.firebaseDocumentClazz);
             this.setAnnotatedFieldValue(t, this.documentIdField, id);
-            return t;
         } else {
             try {
                 t = new ObjectMapper().readValue((String) input, this.firebaseDocumentClazz);
                 this.setAnnotatedFieldValue(t, this.documentIdField, id);
-                return t;
             } catch (JsonProcessingException e) {
                 e.printStackTrace();
-                return null;
             }
         }
+        this.doSthToObj(input, id, t);
+        return t;
     }
+
+    public abstract T doSthToObj(Object input, ID id, T obj);
 
     private String generateUrlGetAll(String authKey) {
         String url = this.firebaseRealtimeDatabaseConfigurationProperties.getDatabaseUrl();
