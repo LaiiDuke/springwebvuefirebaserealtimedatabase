@@ -5,11 +5,11 @@
       <p class="lead" v-text="$t('home.subtitle')">Homepage</p>
 
       <div>
-        <div class="alert alert-success">
+        <div class="alert alert-info">
           <line-chart :label-display="this.listLabel" :datasets-prop="this.dataSets"></line-chart>
         </div>
       </div>
     </div>
   </div>
 </template>
-<script lang="ts" src="./person-health.component.ts"></script>
+<script lang="ts" src="./room-environments.component.ts"></script>

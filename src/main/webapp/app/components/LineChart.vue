@@ -3,31 +3,25 @@ import { Line } from 'vue-chartjs';
 
 export default {
   extends: Line,
+  props: {
+    labelDisplay: {
+      type: Array,
+      default: () => [],
+    },
+    dataDisplay: {
+      type: Array,
+      default: () => [],
+    },
+    datasetsProp: {
+      type: Array,
+      default: () => [],
+    },
+  },
   data() {
     return {
       chartData: {
-        labels: [
-          'Babol',
-          'Cabanatuan',
-          'Daegu',
-          'Jerusalem',
-          'Fairfield',
-          'New York',
-          'Gangtok',
-          'Buenos Aires',
-          'Hafar Al-Batin',
-          'Idlib',
-        ],
-        datasets: [
-          {
-            label: 'Line Chart',
-            data: [600, 1150, 342, 6050, 2522, 3241, 1259, 157, 1545, 9841],
-            fill: false,
-            borderColor: '#2554FF',
-            backgroundColor: '#2554FF',
-            borderWidth: 1,
-          },
-        ],
+        labels: this.labelDisplay,
+        datasets: this.datasetsProp,
       },
       options: {
         scales: {
@@ -59,6 +53,12 @@ export default {
   },
   mounted() {
     this.renderChart(this.chartData, this.options);
+  },
+  watch: {
+    // whenever question changes, this function will run
+    datasetsProp(newList, oldList) {
+      this.renderChart(this.chartData, this.options);
+    },
   },
 };
 </script>

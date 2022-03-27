@@ -9,7 +9,6 @@ import com.github.alperkurtul.firebaserealtimedatabase.configuration.FirebaseRea
 import com.github.alperkurtul.firebaserealtimedatabase.exception.HttpBadRequestException;
 import com.github.alperkurtul.firebaserealtimedatabase.exception.HttpNotFoundException;
 import com.github.alperkurtul.firebaserealtimedatabase.exception.HttpUnauthorizedException;
-import com.hust.chartapp.domain.Product;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

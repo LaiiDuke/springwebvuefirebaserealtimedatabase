@@ -23,6 +23,9 @@ import '../content/scss/global.scss';
 import '../content/scss/vendor.scss';
 import TranslationService from '@/locale/translation.service';
 import HomeService from '@/core/home/home.service';
+import PersonHealthService from '@/components/person-health/person-health.service';
+import RoomEnvironmentsService from '@/components/room-environments/room-environments.service';
+import PersonTemperatureService from '@/components/person-temperature/person-temperature.service';
 /* tslint:disable */
 
 // jhipster-needle-add-entity-service-to-main-import - JHipster will import entities services here
@@ -71,6 +74,9 @@ new Vue({
   router,
   provide: {
     homeService: () => new HomeService(),
+    personHealthService: () => new PersonHealthService(),
+    roomEnvironmentsService: () => new RoomEnvironmentsService(),
+    personTemperatureService: () => new PersonTemperatureService(),
     loginService: () => loginService,
     healthService: () => new HealthService(),
     configurationService: () => new ConfigurationService(),

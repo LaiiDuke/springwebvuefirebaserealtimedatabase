@@ -1,54 +1,51 @@
 import Component from 'vue-class-component';
 import { Inject, Vue } from 'vue-property-decorator';
-import LoginService from '@/account/login.service';
 import LineChart from '@/components/LineChart.vue';
-import HomeService from '@/core/home/home.service';
-import { PersonHealth } from '@/shared/model/person-health.model';
-import PersonHealthService from '@/components/person-health/person-health.service';
+import RoomEnvironmentsService from '@/components/room-environments/room-environments.service';
 
 @Component({
   components: {
     LineChart,
   },
 })
-export default class PersonHealthComponent extends Vue {
-  listDataHeartRate = [];
-  listDataSpO2 = [];
+export default class RoomEnvironmentsComponent extends Vue {
+  listTemp = [];
+  listHum = [];
   dataSets = [];
   listLabel = [];
 
-  @Inject('personHealthService')
-  private personHealthService: () => PersonHealthService;
+  @Inject('roomEnvironmentsService')
+  private roomEnvironmentsService: () => RoomEnvironmentsService;
 
   public mounted(): void {
     this.init();
   }
 
   public init(): void {
-    this.personHealthService()
+    this.roomEnvironmentsService()
       .findAll()
       .then(response => {
         response.data.forEach(x => {
-          this.listDataHeartRate.push(x.heartRate);
+          this.listTemp.push(x.roomTemp);
           this.listLabel.push(x.time + '-' + x.date);
-          this.listDataSpO2.push(x.SpO2);
+          this.listHum.push(x.roomHum);
         });
         this.dataSets.push({
-          label: 'Heart Rate',
+          label: 'Temperature',
           type: 'line',
-          data: this.listDataHeartRate,
+          data: this.listTemp,
           fill: false,
-          borderColor: '#2554FF',
-          backgroundColor: '#2554FF',
+          borderColor: '#34fd00',
+          backgroundColor: '#34fd00',
           borderWidth: 1,
         });
         this.dataSets.push({
-          label: 'SpO2',
+          label: 'Humidity',
           type: 'bar',
-          data: this.listDataSpO2,
+          data: this.listHum,
           fill: false,
-          borderColor: '#ffcece',
-          backgroundColor: '#ffdada',
+          borderColor: '#ff4040',
+          backgroundColor: '#ff4040',
           borderWidth: 1,
         });
       });

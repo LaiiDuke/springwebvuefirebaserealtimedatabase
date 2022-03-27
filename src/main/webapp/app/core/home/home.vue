@@ -18,7 +18,7 @@
           <a class="alert-link" v-on:click="openLogin()" v-text="$t('global.messages.info.authenticated.link')">sign in</a>
         </div>
       </div>
-      <div class="row">
+      <div v-if="authenticated" class="row">
         <div class="alert col-md-4 alert-info">
           <h4>Person Health</h4>
           <p>Time: {{ personHealth.time }}</p>
@@ -28,13 +28,16 @@
         </div>
         <div class="alert col-md-4 alert-success">
           <h4>Person Temperature</h4>
-          <p>Temperature:</p>
+          <p>Time: {{ personTemperature.time }}</p>
+          <p>Temperature: {{ personTemperature.tempObject }}</p>
+          <router-link to="/person-temperature" class="btn btn-danger">Detail</router-link>
         </div>
         <div class="alert col-md-4 alert-secondary">
           <h4>Environment Temperature</h4>
-          <p>Time:</p>
-          <p>Temperature:</p>
-          <p>Humidity:</p>
+          <p>Time: {{ roomEnvironment.time }}</p>
+          <p>Temperature: {{ roomEnvironment.roomTemp }}</p>
+          <p>Humidity: {{ roomEnvironment.roomHum }}</p>
+          <router-link to="/room-environments" class="btn btn-danger">Detail</router-link>
         </div>
       </div>
     </div>
