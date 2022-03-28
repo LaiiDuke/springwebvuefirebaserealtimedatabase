@@ -8,6 +8,7 @@
         <div class="alert alert-success">
           <line-chart :label-display="this.listLabel" :datasets-prop="this.dataSets"></line-chart>
         </div>
+        <b-table :items="this.dataSets"></b-table>
       </div>
     </div>
   </div>
