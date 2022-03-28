@@ -9,6 +9,7 @@ import PersonTemperatureService from '@/components/person-temperature/person-tem
   },
 })
 export default class PersonTemperatureComponent extends Vue {
+  listData = [];
   listTemperature = [];
   dataSets = [];
   listLabel = [];
@@ -24,6 +25,7 @@ export default class PersonTemperatureComponent extends Vue {
     this.personTemperatureService()
       .findAll()
       .then(response => {
+        this.listData = response.data;
         response.data.forEach(x => {
           this.listTemperature.push(x.tempObject);
           this.listLabel.push(x.time + '-' + x.date);

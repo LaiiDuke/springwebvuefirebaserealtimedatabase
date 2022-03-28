@@ -8,7 +8,26 @@
         <div class="alert alert-success">
           <line-chart :label-display="this.listLabel" :datasets-prop="this.dataSets"></line-chart>
         </div>
-        <b-table :items="this.dataSets"></b-table>
+        <div>
+          <table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Heart Rate</th>
+                <th>SpO2</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="item in this.listData" :key="item.dateObj">
+                <td>{{ item.date }}</td>
+                <td>{{ item.time }}</td>
+                <td>{{ item.heartRate }}</td>
+                <td>{{ item.SpO2 }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>

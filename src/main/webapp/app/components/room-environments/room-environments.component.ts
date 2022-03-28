@@ -9,6 +9,7 @@ import RoomEnvironmentsService from '@/components/room-environments/room-environ
   },
 })
 export default class RoomEnvironmentsComponent extends Vue {
+  listData = [];
   listTemp = [];
   listHum = [];
   dataSets = [];
@@ -25,6 +26,7 @@ export default class RoomEnvironmentsComponent extends Vue {
     this.roomEnvironmentsService()
       .findAll()
       .then(response => {
+        this.listData = response.data;
         response.data.forEach(x => {
           this.listTemp.push(x.roomTemp);
           this.listLabel.push(x.time + '-' + x.date);
