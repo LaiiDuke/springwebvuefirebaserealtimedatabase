@@ -8,7 +8,10 @@
         <div class="alert alert-success">
           <line-chart :label-display="this.listLabel" :datasets-prop="this.dataSets"></line-chart>
         </div>
+        <hr />
         <div>
+          <h2>Person Health</h2>
+          <br />
           <table class="table table-striped table-bordered">
             <thead>
               <tr>
