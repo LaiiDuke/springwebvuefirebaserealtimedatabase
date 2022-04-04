@@ -30,7 +30,8 @@ public class RoomEnvironmentsController {
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public ResponseEntity<List<RoomEnvironments>> all() {
-        return ResponseEntity.ok(getGlobalList());
+        Collections.sort(getGlobalList());
+        return ResponseEntity.ok(globalList);
     }
 
     @RequestMapping(value = "/latest", method = RequestMethod.GET)

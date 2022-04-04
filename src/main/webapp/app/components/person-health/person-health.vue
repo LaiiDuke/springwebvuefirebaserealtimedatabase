@@ -1,8 +1,7 @@
 <template>
   <div class="home row">
     <div class="col-md-12">
-      <h1 class="display-4" v-text="$t('home.title')">Welcome, Chart APP!</h1>
-      <p class="lead" v-text="$t('home.subtitle')">Homepage</p>
+      <h1 class="display-4">Historical Data</h1>
 
       <div>
         <div class="alert alert-success">
@@ -10,15 +9,15 @@
         </div>
         <hr />
         <div>
-          <h2>Person Health</h2>
+          <h2>Historical Data</h2>
           <br />
           <table class="table table-striped table-bordered">
             <thead>
               <tr>
                 <th>Date</th>
                 <th>Time</th>
-                <th>Heart Rate</th>
-                <th>SpO2</th>
+                <th>Heart Rate (bpm)</th>
+                <th>SpO2 (%)</th>
               </tr>
             </thead>
             <tbody>

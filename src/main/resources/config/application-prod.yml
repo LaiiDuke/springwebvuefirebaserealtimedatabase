@@ -109,3 +109,6 @@ jhipster:
 # ===================================================================
 
 # application:
+firebase-realtime-database:
+  database-url: https://projectfinal-e70bc-default-rtdb.firebaseio.com/
+  authkey: E18HfF5JqnLOeYsUctceULKXc3MXdHgLMNZSLPwM

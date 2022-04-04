@@ -31,7 +31,8 @@ public class PersonHealthController {
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public ResponseEntity<List<PersonHealth>> all() {
-        return ResponseEntity.ok(getGlobalList());
+        Collections.sort(getGlobalList());
+        return ResponseEntity.ok(globalList);
     }
 
     @RequestMapping(value = "/latest", method = RequestMethod.GET)

@@ -30,7 +30,8 @@ public class PersonTemperatureController {
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public ResponseEntity<List<PersonTemperature>> all() {
-        return ResponseEntity.ok(getGlobalList());
+        Collections.sort(getGlobalList());
+        return ResponseEntity.ok(globalList);
     }
 
     @RequestMapping(value = "/latest", method = RequestMethod.GET)

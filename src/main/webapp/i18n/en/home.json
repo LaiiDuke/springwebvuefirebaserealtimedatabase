@@ -1,13 +1,13 @@
 {
   "home": {
-    "title": "Welcome, Java Hipster!",
+    "title": "Welcome to the Patient Health Monitoring page!",
     "subtitle": "This is your homepage",
     "logged": {
       "message": "You are logged in as user \"{{username}}\"."
     },
-    "question": "If you have any question on JHipster:",
+    "question": "If you have any question on Patient Health Monitoring:",
     "link": {
-      "homepage": "JHipster homepage",
+      "homepage": "Patient Health Monitoring homepage",
       "stackoverflow": "JHipster on Stack Overflow",
       "bugtracker": "JHipster bug tracker",
       "chat": "JHipster public chat room",

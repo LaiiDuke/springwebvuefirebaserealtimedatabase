@@ -2,7 +2,8 @@
   <b-navbar data-cy="navbar" toggleable="md" type="dark" class="bg-primary">
     <b-navbar-brand class="logo" b-link to="/">
       <span class="logo-img"></span>
-      <span v-text="$t('global.title')" class="navbar-title">chartapp</span> <span class="navbar-version">{{ version }}</span>
+      <!--      <span v-text="$t('global.title')" class="navbar-title">chartapp</span> <span class="navbar-version">{{ version }}</span>-->
+      <span v-text="$t('global.title')" class="navbar-title">Patient health monitering</span>
     </b-navbar-brand>
     <b-navbar-toggle
       right
